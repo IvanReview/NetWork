@@ -1,0 +1,183 @@
+test!:
+  path:      /
+  controller: App\Http\Controllers\MyFeedController::index
+  methods:    GET
+
+
+route1:
+  path: /main/{id}
+  defaults: { _controller: 'App\Http\Controllers\MyFeedController::getUserData' }
+  methods:    GET
+
+userOrfriendData:
+  path: /user-friend/{user_id}/{friend_id}
+  controller: App\Http\Controllers\UserController::getUserFriendData
+  methods:    GET
+
+editUser:
+  path:      /edit-user/{user_id}
+  controller: App\Http\Controllers\UserController::editUserProfile
+  methods:    POST
+
+userPosts:
+  path:      /posts/{user_id}
+  controller: App\Http\Controllers\MyFeedController::getUserPosts
+  methods:    GET
+
+userAddPost:
+  path:      /post/{user_id}/{author_id}
+  controller: App\Http\Controllers\PostController::addPost
+  methods:    POST
+
+userEditPost:
+  path:      /post-edit/{post_id}
+  controller: App\Http\Controllers\PostController::editPost
+  methods:    POST
+
+userDeletePost:
+  path:      /post_del/{post_id}
+  controller: App\Http\Controllers\PostController::deletePost
+
+allUsers:
+  path:      /users/{user_id}
+  controller: App\Http\Controllers\UserController::peopleNear
+  methods:    GET
+
+searchUsers:
+  path:      /search-users/{user_id}
+  controller: App\Http\Controllers\UserController::searchUsers
+  methods: POST
+
+friends:
+  path:      /friends/{id}
+  controller: App\Http\Controllers\UserController::getFriends
+  methods:    GET
+
+friendsOnline:
+  path:      /friends-online/{id}
+  controller: App\Http\Controllers\UserController::getFriendsOnline
+  methods:    GET
+
+friendAdd:
+  path:      /friend-add/{user_id}/{friend_id}
+  controller: App\Http\Controllers\UserController::addToFriends
+  methods:    POST
+
+friendAcept:
+  path:      /friend-accept/{user_id}/{friend_id}
+  controller: App\Http\Controllers\UserController::acceptFriend
+  methods:    POST
+
+friendsDelete:
+  path:      /friend-delete/{user_id}/{friend_id}
+  controller: App\Http\Controllers\UserController::deleteFriend
+  methods:    DELETE
+
+addComent:
+  path:      /comments/{post_id}/{user_id}
+  controller: App\Http\Controllers\PostController::addComment
+  methods:    POST
+
+deleteComent:
+  path:      /comment-delete/{comment_id}
+  controller: App\Http\Controllers\PostController::deleteComment
+  methods:    DELETE
+
+likePost:
+  path:      /likes/{post_id}/{user_id}
+  controller: App\Http\Controllers\PostController::likePost
+  methods:    POST
+
+route2:
+  path:     /page/{alias}
+  defaults: { _controller: 'App\Http\Controllers\PageController::indexAction' }
+
+route3:
+  path:     /index
+  defaults: { _controller: 'App\Http\Controllers\MyFeedController::getData' }
+
+
+getDialogs:
+  path:     /dialogs/{user_id}
+  controller: App\Http\Controllers\MessageController::getDialogs
+  methods: GET
+
+getDialogMessages:
+  path:     /dialogs/messages/{dialog_id}/{user_id}
+  controller: App\Http\Controllers\MessageController::getMessages
+  methods: GET
+
+addMessages:
+  path:     /dialogs/message/{dialog_id}/{user_id}
+  controller: App\Http\Controllers\MessageController::addMessage
+  methods: POST
+
+addNewMessageAndDialog:
+  path: /dialogs/new-message/{user_id}
+  controller: App\Http\Controllers\MessageController::addNewMessageAndDialog
+  methods: POST
+
+delMessageDromDialog:
+  path: /dialogs/del-message/{message_id}
+  controller: App\Http\Controllers\MessageController::delMessageFromDialog
+  methods: DELETE
+
+
+getUserImage:
+  path: /images/{user_id}
+  controller: App\Http\Controllers\ImageController::getImagesForUser
+  methods: GET
+
+
+addImage:
+  path: /images/{user_id}
+  controller: App\Http\Controllers\ImageController::addImages
+  methods: POST
+
+
+deleteImage:
+  path: /images/{image_id}
+  controller: App\Http\Controllers\ImageController::deleteImage
+  methods: DELETE
+
+editeImageDesc:
+  path: /images-edit/{image_id}
+  controller: App\Http\Controllers\ImageController::editImageDescription
+  methods: POST
+
+
+getCommentsForImage:
+  path: /images-comment/{image_id}
+  controller: App\Http\Controllers\ImageController::getCommentsForImage
+  methods: GET
+
+addCommentForImage:
+  path: /comment-images-add/{image_id}/{author_id}
+  controller: App\Http\Controllers\ImageController::addCommentForImage
+  methods: POST
+
+
+login:
+  path: /login
+  controller: App\Http\Controllers\Auth\AuthController::login
+  methods: POST
+
+register:
+  path: /register
+  controller: App\Http\Controllers\Auth\AuthController::register
+  methods: POST
+
+logout:
+  path: /logout
+  controller: App\Http\Controllers\Auth\AuthController::logout
+  methods: POST
+
+test:
+  path: /test
+  controller: App\Http\Controllers\Auth\AuthController::chekToken
+  methods: GET
+
+online:
+  path: /online/{user_id}
+  controller: App\Http\Controllers\MyFeedController::online
+  methods: POST

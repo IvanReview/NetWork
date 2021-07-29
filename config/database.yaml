@@ -1,0 +1,6 @@
+database:
+  dbname: "doctrine"
+  user: "root"
+  password: "root"
+  driver: "pdo_mysql"
+  host: ""
